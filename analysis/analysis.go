@@ -2,7 +2,6 @@ package analysis
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -50,11 +49,10 @@ func find_proper_target(word string) string {
 	if len(res) == 0 {
 		return word
 	}
-	fmt.Println(res)
 	return res[0]
 }
 
-func construct_target_sentence(sentence string) string {
+func Construct_target_sentence(sentence string) string {
 	load_allowed_words()
 	// This will construct the target sentence from the input sentence
 	// We'll remove all the punctuations and convert the sentence to lowercase
@@ -80,7 +78,7 @@ func construct_target_sentence(sentence string) string {
 func Accuracy(input string) float64 {
 	// This will calculate the accuracy of the input sentence based on what
 	// the algorithm thinks the user was trying to type
-	target_sentence := construct_target_sentence(input)
+	target_sentence := Construct_target_sentence(input)
 	distance := Distance(input, target_sentence)
 	return 1 - (float64(distance) / float64(len(target_sentence)))
 }
