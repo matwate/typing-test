@@ -34,7 +34,6 @@ type model struct {
 func initialModel() model {
 	ta := textarea.New()
 	ta.Focus()
-	ta.CharLimit = 140
 	ta.SetWidth(100)
 	return model{
 		something:    0,
